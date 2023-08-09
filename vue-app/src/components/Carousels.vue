@@ -1,22 +1,29 @@
 <template>
     <v-carousel 
         show-arrows="hover"
+        hide-delimiter-background
         cycle
-        interval="4500"
-        hide-delimiter-background>
+        >
         <v-carousel-item
-            src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-            cover
-        ></v-carousel-item>
-
-        <v-carousel-item
-            src="https://cdn.vuetifyjs.com/images/cards/hotel.jpg"
-            cover
-
-        ></v-carousel-item>
-        <v-carousel-item
-            src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+            v-for="(item,i) in CarouselsList"
+            :key="i"
+            :src=item.src
             cover
         ></v-carousel-item>
     </v-carousel>
 </template>
+
+<script setup>
+import { reactive } from 'vue';
+
+    const CarouselsList = reactive([
+        {src: "./src/assets/MainPageCarou/CarouselsPics(1).jpg"},
+        {src: "./src/assets/MainPageCarou/CarouselsPics(2).jpg"},
+        {src: "./src/assets/MainPageCarou/CarouselsPics(3).jpg"},
+        {src: "./src/assets/MainPageCarou/CarouselsPics(4).jpg"},
+        {src: "./src/assets/MainPageCarou/CarouselsPics(5).jpg"},
+        {src: "./src/assets/MainPageCarou/CarouselsPics(6).jpg"}
+    ]) 
+    console.log(CarouselsList);
+
+</script>

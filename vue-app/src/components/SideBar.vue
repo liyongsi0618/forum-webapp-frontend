@@ -1,26 +1,31 @@
 <template>
     <v-sheet rounded="lg">
         <v-list rounded="lg">
+
         <v-list-item
-            v-for="n in 5"
-            :key="n"
             link
+            density="compact"
+            color="grey-lighten-4"
         >
             <v-list-item-title>
-            List Item {{ n }}
+            <slot />
             </v-list-item-title>
         </v-list-item>
 
         <v-divider class="my-2"></v-divider>
 
-        <v-list-item
+        <v-list-item 
+            v-for="n in 9"
+            :key="n"
+            density="compact"
             link
-            color="grey-lighten-4"
         >
             <v-list-item-title>
-            Refresh
+            List Item {{ n }}
             </v-list-item-title>
+
         </v-list-item>
+
         </v-list>
     </v-sheet>
 </template>

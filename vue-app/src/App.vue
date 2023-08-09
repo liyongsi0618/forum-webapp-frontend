@@ -37,10 +37,14 @@
           <!-- 左侧两个sidebar -->
           <v-col cols="3">
             <v-row>
-              <v-col><SideBar /></v-col>
+              <v-col>
+                <SideBar>推荐好文</SideBar>
+              </v-col>
             </v-row>
             <v-row>
-              <v-col><SideBar /></v-col>
+              <v-col>
+                <SideBar>更多阅读</SideBar>
+              </v-col>
             </v-row>
           </v-col>
           

@@ -8,5 +8,4 @@
 
 <script setup>
     import Carousels from './Carousels.vue';
-
 </script>
