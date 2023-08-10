@@ -8,7 +8,7 @@
             color="grey-lighten-4"
         >
             <v-list-item-title>
-            <slot />
+                <slot />
             </v-list-item-title>
         </v-list-item>
 
