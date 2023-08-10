@@ -28,4 +28,4 @@ coverage
 *.sw?
 
 # static resource
-.assets/*
+/assets/*

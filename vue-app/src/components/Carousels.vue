@@ -3,6 +3,7 @@
         show-arrows="hover"
         hide-delimiter-background
         cycle
+        height="300"
         >
         <v-carousel-item
             v-for="(item,i) in CarouselsList"
@@ -11,6 +12,7 @@
             cover
         ></v-carousel-item>
     </v-carousel>
+    
 </template>
 
 <script setup>
@@ -24,6 +26,5 @@ import { reactive } from 'vue';
         {src: "./src/assets/img/MainPageCarou/CarouselsPics(5).jpg"},
         {src: "./src/assets/img/MainPageCarou/CarouselsPics(6).jpg"}
     ]) 
-    console.log(CarouselsList);
 
 </script>

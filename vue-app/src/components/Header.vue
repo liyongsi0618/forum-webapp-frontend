@@ -1,40 +1,93 @@
 <template>
-    <v-app-bar flat color="grey-lighten-3"></v-app-bar>
+    <v-app-bar 
+        flat 
+        image="./src/assets/img/vbanner.jpg"
+        absolute
+    >
+        <v-container class="mx-auto d-flex align-center justify-center">
+            <v-row>
+                <!-- 综合导航栏 -->
+                <v-col cols="1" >
+                    <v-menu>
+                        <template v-slot:activator="{ props }">
+                            <v-btn 
+                                v-bind="props" 
+                                color="orange lighten-3"
+                                style="font-weight: bold;"
+                                prepend-icon="mdi-format-list-bulleted"
+                            >Guide</v-btn>
+                        </template>
 
-    <v-app-bar flat image="./src/assets/img/vbanner.jpg">
-    <v-container class="fill-height d-flex align-center">
-        <v-avatar
-        class="me-10 ms-4"
-        color="grey-darken-1"
-        size="32"
-        ></v-avatar>
+                        <v-list>
+                            <v-list-item
+                            v-for="link in links"
+                            :key="link.id"
+                            :value="link"
+                            >
+                            <v-list-item-title>{{ link }}</v-list-item-title>
+                            </v-list-item>
+                        </v-list>
+                    </v-menu>
 
-        <v-btn
-        v-for="link in links"
-        :key="link"
-        variant="text"
-        >
-        {{ link }}
-        </v-btn>
+                </v-col>
 
-        <v-spacer></v-spacer>
+                <v-col class="d-none d-md-block">
+                    <!-- 导航栏按钮 -->
+                    <v-btn
+                        v-for="link in links"
+                        :key="link"
+                        color="white"
+                        variant=""
+                        style="font-weight: bold;"
+                    >{{link}}</v-btn>
+                </v-col>
 
-        <v-responsive max-width="260">
-        <v-text-field
-            density="compact"
-            hide-details
-            variant="solo"
-        ></v-text-field>
-        </v-responsive>
-    </v-container>
+                <v-col cols="2" class="d-none d-lg-block">
+                    <!-- 搜索框 -->
+                    <v-text-field
+                        :loading="loadStatus.loading"
+                        density="compact"
+                        variant="solo-filled"
+                        single-line
+                        hide-details
+                        placeholder="搜索文章内容..."
+                        clearable
+                        append-inner-icon="mdi-magnify"
+                        @click:append-inner="doSearch"
+                        @keyup.enter="doSearch"
+                    ></v-text-field>
+                </v-col>
+            </v-row>
+
+        </v-container>
     </v-app-bar>
 </template>
-
 <script setup>
+import { reactive, ref } from 'vue';
+
     const links = [
-        'Dashboard',
-        'Messages',
-        'Profile',
-        'Updates',
+        'PHP开发',
+        'Java开发',
+        'Python开发',
+        'Web前端',
+        '数据科学',
+        '人工智能',
+        '杂谈'
     ]
+
+    const loadStatus = reactive({
+        loaded : false,
+        loading : false
+    })
+
+
+    function doSearch () {
+        loadStatus.loading = true
+
+        setTimeout(() => {
+            loadStatus.loading = false
+            loadStatus.loaded = true
+        }, 2000) 
+    }
+
 </script>
