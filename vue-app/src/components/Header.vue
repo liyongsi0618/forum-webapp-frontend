@@ -6,13 +6,13 @@
     >
         <v-container class="mx-auto d-flex align-center justify-center">
             <v-row>
-                <!-- 综合导航栏 -->
                 <v-col cols="1" >
+                    <!-- 综合导航栏 -->
                     <v-menu>
                         <template v-slot:activator="{ props }">
                             <v-btn 
                                 v-bind="props" 
-                                color="orange lighten-3"
+                                color="orange lighten-5"
                                 style="font-weight: bold;"
                                 prepend-icon="mdi-format-list-bulleted"
                             >Guide</v-btn>
@@ -22,13 +22,11 @@
                             <v-list-item
                             v-for="link in links"
                             :key="link.id"
-                            :value="link"
                             >
                             <v-list-item-title>{{ link }}</v-list-item-title>
                             </v-list-item>
                         </v-list>
                     </v-menu>
-
                 </v-col>
 
                 <v-col class="d-none d-md-block">
@@ -37,7 +35,6 @@
                         v-for="link in links"
                         :key="link"
                         color="white"
-                        variant=""
                         style="font-weight: bold;"
                     >{{link}}</v-btn>
                 </v-col>

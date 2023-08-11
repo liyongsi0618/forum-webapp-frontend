@@ -21,14 +21,24 @@
             <!-- 中部区域内容 -->
             <!-- 轮播图 -->
             <v-col>
-                <v-sheet
-                    rounded="lg"
-                >
-                    <Carousels />
-                </v-sheet>
-            </v-col>
+                <v-row><v-col>
+                    <v-sheet
+                        rounded="lg"
+                    >
+                        <Carousels />
+                    </v-sheet>
+                </v-col></v-row>
+                <v-row><v-col>
+                    <!-- 文章展示页面 -->
+                    <ArticlePage />
+                    <ArticlePage />                    
+                </v-col></v-row>
 
+
+
+            </v-col>
         </v-row>
+
     </v-container>
 </v-main>
 
@@ -38,5 +48,6 @@
     
     import SideBar from './SideBar.vue';
     import Carousels from './Carousels.vue';
+    import ArticlePage from './ArticlePage.vue';
 
 </script>
