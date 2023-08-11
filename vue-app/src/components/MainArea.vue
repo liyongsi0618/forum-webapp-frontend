@@ -19,8 +19,8 @@
             </v-col>
         
             <!-- 中部区域内容 -->
-            <!-- 轮播图 -->
             <v-col>
+                <!-- 轮播图 -->
                 <v-row><v-col>
                     <v-sheet
                         rounded="lg"
@@ -30,8 +30,7 @@
                 </v-col></v-row>
                 <v-row><v-col>
                     <!-- 文章展示页面 -->
-                    <ArticlePage />
-                    <ArticlePage />                    
+                    <ArticlePage />                 
                 </v-col></v-row>
 
 

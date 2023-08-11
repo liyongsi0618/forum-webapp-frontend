@@ -1,5 +1,14 @@
 <template>
-    <ArticleCard />
+    <v-card flat>
+        <ArticleCard />
+        <ArticleCard />
+        <ArticleCard />
+        <ArticleCard />
+        <ArticleCard />
+        <ArticleCard />
+    </v-card>
+
+
 </template>
 
 <script setup>
