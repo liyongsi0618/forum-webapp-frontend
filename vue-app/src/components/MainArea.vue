@@ -9,6 +9,9 @@
 
                 <!-- 更多阅读 -->
                 <SideBar class="mt-5">更多阅读</SideBar>
+
+                <!-- 最新发布 -->
+                <SideBar class="mt-5">更多阅读</SideBar>
             </v-col>
         
             <!-- 中部区域内容 -->
@@ -30,9 +33,10 @@
 </template>
 
 <script setup>
-    
     import SideBar from './SideBar.vue';
     import Carousels from './Carousels.vue';
     import ArticlePage from './ArticlePage.vue';
     import Pagination from './Pagination.vue'
+
+
 </script>
