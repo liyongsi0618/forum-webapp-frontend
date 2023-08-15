@@ -32,9 +32,6 @@
                     <!-- 文章展示页面 -->
                     <ArticlePage />                 
                 </v-col></v-row>
-
-
-
             </v-col>
         </v-row>
 
