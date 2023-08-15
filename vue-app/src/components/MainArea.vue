@@ -5,33 +5,22 @@
             <!-- 左侧两个sidebar -->
             <v-col cols="3" class="d-none d-sm-block">
                 <!-- 推荐好文 -->
-                <v-row>
-                    <v-col>
-                    <SideBar >推荐好文</SideBar>
-                    </v-col>
-                </v-row>
+                <SideBar>推荐好文</SideBar>
+
                 <!-- 更多阅读 -->
-                <v-row>
-                    <v-col>
-                    <SideBar>更多阅读</SideBar>
-                    </v-col>
-                </v-row>
+                <SideBar class="mt-5">更多阅读</SideBar>
             </v-col>
         
             <!-- 中部区域内容 -->
             <v-col>
                 <!-- 轮播图 -->
-                <v-row><v-col>
-                    <v-sheet
-                        rounded="lg"
-                    >
-                        <Carousels />
-                    </v-sheet>
-                </v-col></v-row>
-                <v-row><v-col>
-                    <!-- 文章展示页面 -->
-                    <ArticlePage />                 
-                </v-col></v-row>
+                <Carousels />
+
+                <!-- 文章展示页面 -->
+                <ArticlePage />  
+                
+                <!-- 分页 -->
+                <Pagination class="my-10"></Pagination>
             </v-col>
         </v-row>
 
@@ -45,5 +34,5 @@
     import SideBar from './SideBar.vue';
     import Carousels from './Carousels.vue';
     import ArticlePage from './ArticlePage.vue';
-
+    import Pagination from './Pagination.vue'
 </script>

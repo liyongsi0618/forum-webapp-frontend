@@ -1,17 +1,21 @@
 <template>
-    <v-carousel 
-        show-arrows="hover"
-        hide-delimiter-background
-        cycle
-        height="300"
-        >
-        <v-carousel-item
-            v-for="(item,i) in CarouselsList"
-            :key="i"
-            :src=item.src
-            cover
-        ></v-carousel-item>
-    </v-carousel>
+    <v-sheet rounded="lg">
+        <v-carousel 
+            show-arrows="hover"
+            hide-delimiter-background
+            cycle
+            height="300"
+            style="border-radius: 0.5rem;"
+            >
+            <v-carousel-item
+                v-for="(item,i) in CarouselsList"
+                :key="i"
+                :src=item.src
+                cover
+            ></v-carousel-item>
+        </v-carousel>
+    </v-sheet>
+
     
 </template>
 
