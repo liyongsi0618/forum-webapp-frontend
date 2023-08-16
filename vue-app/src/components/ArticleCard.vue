@@ -4,7 +4,6 @@
             <v-col cols="4" class="d-none d-md-block my-auto">
                 <v-img
                 src="https://cdn.vuetifyjs.com/images/cards/house.jpg"
-                max-width="260"
                 cover
                 ></v-img>
             </v-col>

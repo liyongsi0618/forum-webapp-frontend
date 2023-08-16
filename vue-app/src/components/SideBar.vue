@@ -7,7 +7,7 @@
                 base-color="white"
                 height="50px"
                 class="justify-center"
-                style="background-color: royalblue;"
+                style="background-color: #4169e1;"
             >
                 <v-list-item-title style="font-weight: bold;">
                     <slot />
