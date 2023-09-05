@@ -14,5 +14,4 @@
   import MainArea from './components/MainArea.vue'
   import Header from './components/Header.vue'
 
-
 </script>
