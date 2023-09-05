@@ -18,7 +18,7 @@
         <!-- 内容栏 -->
         <v-card-text 
           class="px-2 py-1" 
-          style="min-height: 100px; color: #666;"
+          style="min-height: 110px; color: #666;"
         >
           {{ content }}
         </v-card-text>
