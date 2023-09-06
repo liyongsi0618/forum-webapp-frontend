@@ -15,7 +15,7 @@
         </v-col>
 
         <!-- 中部区域内容 -->
-        <v-col>
+        <v-col cols="12" sm="9">
           <!-- 轮播图 -->
           <Carousels />
 

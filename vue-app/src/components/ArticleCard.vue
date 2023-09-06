@@ -18,7 +18,7 @@
         <!-- 内容栏 -->
         <v-card-text 
           class="px-2 py-1" 
-          style="min-height: 110px; color: #666;"
+          style="min-height: 110px; color: #666; font-size:small;"
         >
           {{ content }}
         </v-card-text>
@@ -27,7 +27,7 @@
         <v-card-actions 
           compact 
           class="justify-end justify-sm-center px-5" 
-          style="font-size: 12px; color: #666;"
+          style="font-size: x-small; color: #666;"
         >
 
           <!-- 浏览量Watched -->
@@ -77,7 +77,7 @@ const headline = props.article.headline
 
 // 处理得到文章摘要
 function getAbstract(str) {
-  const abstrLength = 200
+  const abstrLength = 120
   // 除去标签
   if (!str) return '';
   str = str.replace(/(<([^>]+)>)/ig, '');

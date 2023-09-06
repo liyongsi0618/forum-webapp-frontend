@@ -14,6 +14,13 @@
 import ArticleCard from './ArticleCard.vue';
 
 import { reactive } from 'vue';
+import { pageNumStore } from '../stores/pageNum'
+import { storeToRefs } from 'pinia'
+
+// 使用pinia传递分页参数
+const store = pageNumStore()
+const {page} = storeToRefs(store)
+
 
 // 获取首页文章卡片信息
 const articles = reactive([]);
