@@ -1,33 +1,32 @@
 <template>
-  <v-card elevation="3" class="my-2">
+  <v-card elevation="3" class="my-2" style="border-radius: 0.75rem;">
     <v-row no-gutters>
-      <v-col cols="4" class="d-none d-md-block my-auto">
+      <v-col cols="3" class="d-none d-sm-block my-auto">
         <v-img 
           src="https://cdn.vuetifyjs.com/images/cards/house.jpg" 
-          cover
         ></v-img>
       </v-col>
 
-      <v-col>
+      <v-col cols="12" sm="9" class="px-3">
         <!-- 标题栏 -->
-        <v-card-title class="text-h6 px-2 my-1">
+        <v-card-title class="text-h6">
           {{ headline }}
         </v-card-title>
 
 
         <!-- 内容栏 -->
         <v-card-text 
-          class="px-2 py-1" 
-          style="min-height: 110px; color: #666; font-size:small;"
+          class="py-0" 
+          style="min-height: 50px; color: #666; font-size: 12px; line-height: 1.5; text-align: justify"
         >
-          {{ content }}
+          {{ abstract }}
         </v-card-text>
 
         <!-- 按钮栏 -->
         <v-card-actions 
           compact 
           class="justify-end justify-sm-center px-5" 
-          style="font-size: x-small; color: #666;"
+          style="font-size: 12px; color: #666;"
         >
 
           <!-- 浏览量Watched -->
@@ -60,39 +59,58 @@
             icon="mdi-clock-time-five" 
             size="x-small" 
             color="surface-variant"
-            class="d-none d-sm-block"
+            class="d-none d-md-block"
           >
           </v-btn>
-          <span class="d-none d-sm-block">{{ createtime }}</span>
+          <span class="d-none d-md-block">{{ createtimeFormat }}</span>
         </v-card-actions>
       </v-col>
     </v-row>
+    <slot></slot>
   </v-card>
 </template>
 
 <script setup>
-const props = defineProps(['article'])
+import { computed, ref, toRefs } from 'vue';
 
-const headline = props.article.headline
+
+const props = defineProps({
+  headline: String,
+  content: String,
+  readcount: Number,
+  createtime: String,
+  nickname: String
+})
+
+const {headline, content, readcount, createtime, nickname} = toRefs(props)
+// const headline = props.headline
+// const content = props.content
+// const readcount = props.readcount
+// const createtime = props.createtime
+// const nickname = props.nickname
 
 // 处理得到文章摘要
 function getAbstract(str) {
-  const abstrLength = 120
+  const abstractLength = 100
   // 除去标签
   if (!str) return '';
   str = str.replace(/(<([^>]+)>)/ig, '');
   str = str.replace(/&nbsp;/ig, ' ')
   str = str.replace(/&#39;/ig, '\'')
-  if (str.length > abstrLength) {
-    str = str.substr(0, abstrLength) + '...'
+  if (str.length > abstractLength) {
+    str = str.substr(0, abstractLength) + '...'
   }
   return str
 }
-const content = getAbstract(props.article.content)
 
-const readcount = props.article.readcount
-const nickname = props.article.nickname
+const abstract = computed(() => {
+  return getAbstract(content.value)
+})
+
+
 // 处理时间字符串为本地时间格式
-const createtime = new Date(props.article.createtime).toLocaleString()
+const createtimeFormat = computed(() => {
+  return new Date(createtime.value).toLocaleString()
+})
 
 </script>
