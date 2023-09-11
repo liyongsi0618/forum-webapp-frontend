@@ -17,9 +17,13 @@
       <v-divider></v-divider>
 
       <!-- 边栏内容栏 -->
-      <v-list-item v-for="n in 9" :key="n" density="compact" link>
-        <v-list-item-title>
-          List Item {{ n }}
+      <v-list-item 
+        v-for="(datum,index) in data" :key="index" 
+        density="compact" 
+        :href= "'article/'+ datum.articleid"
+      >
+        <v-list-item-title style="font-size: xx-small;">
+          {{ index+1 + ". " + datum.headline }}
         </v-list-item-title>
       </v-list-item>
 
@@ -27,3 +31,13 @@
   </v-sheet>
 </template>
 
+<script setup>
+import { toRefs } from 'vue';
+
+// 接收sideBar数据props
+const props = defineProps({
+  data: Array
+})
+
+const {data} = toRefs(props)
+</script>

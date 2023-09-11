@@ -2,7 +2,7 @@
   <v-container class="pa-0 mt-5" style="background-color: white; border-radius: 0.75rem;">
       
     <ArticleCard
-        v-for="article in articles" :key="article.id"
+        v-for="(article, index) in articles" :key="index"
         :headline="article.headline"
         :content="article.content"
         :readcount="article.readcount"
@@ -12,7 +12,6 @@
 
   </v-container>
 </template>
-
 
 
 <script setup>
@@ -33,19 +32,21 @@ function getArticleContent() {
   // 获取Article Card信息
   const baseUrl = 'http://127.0.0.1:5000/page/'
   fetch(baseUrl + page.value.toString())
-      .then(resp => {
-        if (resp.ok) {
-          return resp.json();
-        }
-        throw new Error('页面获取错误');
-      }).then(data => {
-        articles.value = data;
+    .then(resp => {
+      if (resp.ok) {
+        return resp.json();
+      }
+      throw new Error('页面获取错误');
       })
+    .then(data => {
+      articles.value = data;
+    })
 }getArticleContent();
 
 // 监测页码跳转变化，调用fetch封装函数获取新数据
 watch(page, (page, prevValue)=>{
   getArticleContent();
+  window.scrollTo({top:380, behavior:"smooth"})
 })
 
 </script>

@@ -6,7 +6,8 @@
     active-color="primary"
     size="small"
     v-model="page"
-  ></v-pagination>
+  >
+  </v-pagination>
 </template>
 
 

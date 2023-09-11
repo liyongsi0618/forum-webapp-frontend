@@ -17,7 +17,7 @@
         <!-- 内容栏 -->
         <v-card-text 
           class="py-0" 
-          style="min-height: 50px; color: #666; font-size: 12px; line-height: 1.5; text-align: justify"
+          style="min-height: 50px; color: #666; font-size: 12px; line-height: 1.5"
         >
           {{ abstract }}
         </v-card-text>
@@ -66,7 +66,6 @@
         </v-card-actions>
       </v-col>
     </v-row>
-    <slot></slot>
   </v-card>
 </template>
 
@@ -90,27 +89,16 @@ const {headline, content, readcount, createtime, nickname} = toRefs(props)
 // const nickname = props.nickname
 
 // 处理得到文章摘要
-function getAbstract(str) {
-  const abstractLength = 100
-  // 除去标签
-  if (!str) return '';
-  str = str.replace(/(<([^>]+)>)/ig, '');
-  str = str.replace(/&nbsp;/ig, ' ')
-  str = str.replace(/&#39;/ig, '\'')
-  if (str.length > abstractLength) {
-    str = str.substr(0, abstractLength) + '...'
-  }
-  return str
-}
-
+import { ripTags, truncate } from "../common/ContentManage";
+const abstractLength = 90
 const abstract = computed(() => {
-  return getAbstract(content.value)
+  return truncate(ripTags(content.value), abstractLength)
 })
 
 
 // 处理时间字符串为本地时间格式
 const createtimeFormat = computed(() => {
-  return new Date(createtime.value).toLocaleString()
+  return new Date(createtime.value).toLocaleString().slice(0, -3)
 })
 
 </script>
