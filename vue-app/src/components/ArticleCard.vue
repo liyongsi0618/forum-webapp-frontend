@@ -74,7 +74,7 @@
             class="d-none d-md-block"
           >
           </v-btn>
-          <span class="d-none d-md-block">{{ type }}</span>
+          <span class="d-none d-md-block">{{ categoryList[type] }}</span>
         </v-card-actions>
       </v-col>
     </v-row>
@@ -114,5 +114,10 @@ const abstract = computed(() => {
 const createtimeFormat = computed(() => {
   return new Date(createtime.value).toLocaleString().slice(0, -3)
 })
+
+// 引入文章分类对应列表
+import { categoryListStore } from "../stores/CategoryList";
+const store = categoryListStore()
+const { categoryList } = toRefs(store)
 
 </script>

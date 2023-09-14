@@ -4,15 +4,15 @@
       <v-row>
         <v-col cols="1">
           <!-- 综合导航栏 -->
-          <v-menu>
+          <v-menu open-on-hover>
             <template v-slot:activator="{ props }">
               <v-btn v-bind="props" color="orange lighten-5" style="font-weight: bold;"
                 prepend-icon="mdi-format-list-bulleted">Guide</v-btn>
             </template>
 
             <v-list>
-              <v-list-item v-for="link in links" :key="link.id">
-                <v-list-item-title>{{ link }}</v-list-item-title>
+              <v-list-item v-for="(item, index) in categoryList" :key="index" :href='"/type/" + "index"'>
+                <v-list-item-title>{{ item }}</v-list-item-title>
               </v-list-item>
             </v-list>
           </v-menu>
@@ -21,10 +21,11 @@
         <v-col class="d-none d-md-block">
           <!-- 导航栏按钮 -->
           <v-btn 
-            v-for="link in links" :key="link.id" 
+            v-for="(item, index) in categoryList" :key="index" 
             color="white" 
             style="font-weight: bold;"
-          >{{ link }}</v-btn>
+            :href='"/type/" + index'
+          >{{ item }}</v-btn>
         </v-col>
 
         <v-col cols="2" class="d-none d-lg-block">
@@ -47,23 +48,17 @@
   </v-app-bar>
 </template>
 <script setup>
-import { reactive, ref } from 'vue';
+import { reactive, toRefs } from 'vue';
 
-const links = [
-  'PHP开发',
-  'Java开发',
-  'Python开发',
-  'Web前端',
-  '数据科学',
-  '人工智能',
-  '杂谈'
-]
+import { categoryListStore } from '../stores/CategoryList'
+const store = categoryListStore()
+const { categoryList } = toRefs(store)
 
+// 搜索框的底部进度条状态
 const loadStatus = reactive({
   loaded: false,
   loading: false
 })
-
 
 function doSearch() {
   loadStatus.loading = true

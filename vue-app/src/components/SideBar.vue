@@ -23,7 +23,7 @@
         :href= "'article/'+ datum.articleid"
       >
         <v-list-item-title style="font-size: x-small;">
-          {{ index+1 + ". " + datum.headline }}
+          {{ index + 1 + ". " + datum.headline }}
         </v-list-item-title>
       </v-list-item>
 

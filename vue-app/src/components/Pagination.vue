@@ -25,7 +25,7 @@ const props = defineProps({
 const { pageCount } = toRefs(props)
 
 // 使用pinia传递分页参数
-import { pageNumStore } from '../stores/pageNum'
+import { pageNumStore } from '../stores/PageNum'
 import { storeToRefs } from 'pinia'
 
 const store = pageNumStore()
