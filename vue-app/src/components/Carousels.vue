@@ -14,12 +14,12 @@
 import { reactive } from 'vue';
 
 const CarouselsList = reactive([
-  { src: "./src/assets/img/MainPageCarou/CarouselsPics(1).jpg" },
-  { src: "./src/assets/img/MainPageCarou/CarouselsPics(2).jpg" },
-  { src: "./src/assets/img/MainPageCarou/CarouselsPics(3).jpg" },
-  { src: "./src/assets/img/MainPageCarou/CarouselsPics(4).jpg" },
-  { src: "./src/assets/img/MainPageCarou/CarouselsPics(5).jpg" },
-  { src: "./src/assets/img/MainPageCarou/CarouselsPics(6).jpg" }
+  { src: "http://127.0.0.1:5173/src/assets/img/MainPageCarou/CarouselsPics(1).jpg" },
+  { src: "http://127.0.0.1:5173/src/assets/img/MainPageCarou/CarouselsPics(2).jpg" },
+  { src: "http://127.0.0.1:5173/src/assets/img/MainPageCarou/CarouselsPics(3).jpg" },
+  { src: "http://127.0.0.1:5173/src/assets/img/MainPageCarou/CarouselsPics(4).jpg" },
+  { src: "http://127.0.0.1:5173/src/assets/img/MainPageCarou/CarouselsPics(5).jpg" },
+  { src: "http://127.0.0.1:5173/src/assets/img/MainPageCarou/CarouselsPics(6).jpg" }
 ])
 
 </script>

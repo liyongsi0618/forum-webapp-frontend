@@ -1,7 +1,7 @@
 <template>
   <v-navigation-drawer permanent expand-on-hover rail location="right">
     <template v-slot:prepend>
-      <v-list-item lines="two" prepend-avatar="./src/assets/img/account-circle.svg" :title="name"></v-list-item>
+      <v-list-item lines="two" prepend-avatar="http://127.0.0.1:5173/src/assets/img/account-circle.svg" :title="name"></v-list-item>
     </template>
 
     <v-divider></v-divider>

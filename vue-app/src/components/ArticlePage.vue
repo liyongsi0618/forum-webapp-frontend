@@ -1,35 +1,50 @@
 <template>
-  <v-container class="pa-0 mt-5" style="background-color: white; border-radius: 0.75rem;">
-      
-    <ArticleCard
-        v-for="(article, index) in articles" :key="index"
-        :headline="article.headline"
-        :content="article.content"
-        :readcount="article.readcount"
-        :createtime="article.createtime"
-        :nickname="article.nickname"
-      ></ArticleCard>
+    <!-- 文章卡片 -->
+    <v-container class="mt-5 pa-0">
+      <ArticleCard
+          v-for="(article, index) in articles" :key="index"
+          :headline="article.headline"
+          :content="article.content"
+          :readcount="article.readcount"
+          :createtime="article.createtime"
+          :nickname="article.nickname"
+          :type="article.type"
+        ></ArticleCard>
 
-  </v-container>
+      <!-- 分页 -->
+      <Pagination class="my-10" :pageCount="pageCount"></Pagination>      
+    </v-container>
+
 </template>
 
 
 <script setup>
 import ArticleCard from './ArticleCard.vue';
+import Pagination from './Pagination.vue'
 
 import { ref, watch } from 'vue';
-import { pageNumStore } from '../stores/pageNum'
+import { pageNumStore } from '../stores/PageNum'
 import { storeToRefs } from 'pinia'
 
-// 使用pinia传递分页参数
+// 使用pinia传递页面跳转参数
 const store = pageNumStore()
 const {page} = storeToRefs(store)
 
-// 获取首页文章卡片信息
-const articles = ref([]);
+// 获取页数信息
+const pageCount = ref(1)
+const baseUrl = 'http://127.0.0.1:5000/page/page-count'
+fetch(baseUrl)
+.then(resp => {
+  if (resp.ok) {
+    return resp.json();
+  }
+  throw new Error('页面获取错误');
+}).then(data => pageCount.value = parseInt(data))
 
-function getArticleContent() {
+
+const articles = ref([]);
   // 获取Article Card信息
+function getArticleContent() {
   const baseUrl = 'http://127.0.0.1:5000/page/'
   fetch(baseUrl + page.value.toString())
     .then(resp => {

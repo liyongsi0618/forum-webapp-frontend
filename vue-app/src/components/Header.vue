@@ -1,6 +1,6 @@
 <template>
-  <v-app-bar flat image="./src/assets/img/vbanner.jpg" absolute>
-    <v-container class="mx-auto d-flex align-center justify-center">
+  <v-app-bar flat image="http://127.0.0.1:5173/src/assets/img/vbanner.jpg" absolute>
+    <v-container class="mx-auto d-flex align-center justify-center" style="max-width: 1300px;">
       <v-row>
         <v-col cols="1">
           <!-- 综合导航栏 -->
@@ -21,7 +21,7 @@
         <v-col class="d-none d-md-block">
           <!-- 导航栏按钮 -->
           <v-btn 
-            v-for="link in links" :key="link" 
+            v-for="link in links" :key="link.id" 
             color="white" 
             style="font-weight: bold;"
           >{{ link }}</v-btn>

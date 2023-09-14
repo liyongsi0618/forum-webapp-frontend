@@ -63,6 +63,18 @@
           >
           </v-btn>
           <span class="d-none d-md-block">{{ createtimeFormat }}</span>
+
+          <!-- 文章类型 -->
+          <v-btn 
+            disabled 
+            compact 
+            icon="mdi-star-four-points-outline" 
+            size="x-small" 
+            color="surface-variant"
+            class="d-none d-md-block"
+          >
+          </v-btn>
+          <span class="d-none d-md-block">{{ type }}</span>
         </v-card-actions>
       </v-col>
     </v-row>
@@ -70,7 +82,7 @@
 </template>
 
 <script setup>
-import { computed, ref, toRefs } from 'vue';
+import { computed, toRefs } from 'vue';
 
 
 const props = defineProps({
@@ -78,10 +90,12 @@ const props = defineProps({
   content: String,
   readcount: Number,
   createtime: String,
-  nickname: String
+  nickname: String,
+  type: Number
 })
 
-const {headline, content, readcount, createtime, nickname} = toRefs(props)
+// 保持props的响应性
+const {headline, content, readcount, createtime, nickname, type} = toRefs(props)
 // const headline = props.headline
 // const content = props.content
 // const readcount = props.readcount
@@ -90,7 +104,7 @@ const {headline, content, readcount, createtime, nickname} = toRefs(props)
 
 // 处理得到文章摘要
 import { ripTags, truncate } from "../common/ContentManage";
-const abstractLength = 90
+const abstractLength = 130
 const abstract = computed(() => {
   return truncate(ripTags(content.value), abstractLength)
 })

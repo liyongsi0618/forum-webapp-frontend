@@ -11,4 +11,8 @@ app.use(createPinia())
 import vuetify from './plugins/vuetify'
 app.use(vuetify)
 
+// vue-router
+import router from './router/index'
+app.use(router)
+
 app.mount('#app')

@@ -22,7 +22,7 @@
         density="compact" 
         :href= "'article/'+ datum.articleid"
       >
-        <v-list-item-title style="font-size: xx-small;">
+        <v-list-item-title style="font-size: x-small;">
           {{ index+1 + ". " + datum.headline }}
         </v-list-item-title>
       </v-list-item>
